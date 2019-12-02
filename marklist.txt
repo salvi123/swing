@@ -1,0 +1,389 @@
+package rupees;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTextArea;
+import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.DefaultComboBoxModel;
+
+public class marklist {
+
+	private JFrame frame;
+	private JTextField tf1;
+	private JTextField tf2;
+	private JTextField tf3;
+	private JTextField tf4;
+	private JTextField tf5;
+	private JTextField tf6;
+	private JTextField n1;
+	private JTextField n2;
+	private JTextField n3;
+	private JTextField n4;
+	private JTextField n5;
+	private JTextField n6;
+	private JTextField n7;
+	private JTextField n8;
+	private JTable tb;
+	public  String g;
+	public String str[]=new String[20];
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					marklist window = new marklist();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public marklist() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame("Student Report");
+		
+
+		frame.getContentPane().setBackground(new Color(0, 102, 255));
+		frame.getContentPane().setFont(new Font("Tahoma", Font.BOLD, 14));
+		frame.setBounds(100, 100, 805, 526);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.PINK);
+		panel.setBounds(10, 11, 333, 346);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblStudentId = new JLabel("Student iD");
+		lblStudentId.setBounds(10, 41, 75, 14);
+		panel.add(lblStudentId);
+		
+		JLabel lblFirstName = new JLabel("First Name");
+		lblFirstName.setBounds(10, 69, 75, 14);
+		panel.add(lblFirstName);
+		
+		JLabel lblSurname = new JLabel("Surname");
+		lblSurname.setBounds(10, 94, 46, 14);
+		panel.add(lblSurname);
+		
+		JLabel lblCourseCode = new JLabel("Course code");
+		lblCourseCode.setBounds(10, 119, 75, 14);
+		panel.add(lblCourseCode);
+		
+		JLabel lblTotalScore = new JLabel("Total Score");
+		lblTotalScore.setBounds(10, 168, 75, 14);
+		panel.add(lblTotalScore);
+		
+		JLabel lblAverage = new JLabel("Average");
+		lblAverage.setBounds(10, 193, 75, 14);
+		panel.add(lblAverage);
+		
+		JLabel lblRanking = new JLabel("Ranking");
+		lblRanking.setBounds(10, 218, 46, 14);
+		panel.add(lblRanking);
+		
+		tf1 = new JTextField();
+		tf1.setBounds(83, 38, 86, 20);
+		panel.add(tf1);
+		tf1.setColumns(10);
+		
+		tf2 = new JTextField();
+		tf2.setBounds(83, 66, 86, 20);
+		panel.add(tf2);
+		tf2.setColumns(10);
+		
+		tf3 = new JTextField();
+		tf3.setBounds(83, 91, 86, 20);
+		panel.add(tf3);
+		tf3.setColumns(10);
+		
+		tf4 = new JTextField();
+		tf4.setBounds(83, 165, 86, 20);
+		panel.add(tf4);
+		tf4.setColumns(10);
+		
+		tf5 = new JTextField();
+		tf5.setBounds(83, 193, 86, 20);
+		panel.add(tf5);
+		tf5.setColumns(10);
+		
+		tf6 = new JTextField();
+		tf6.setBounds(83, 215, 86, 20);
+		panel.add(tf6);
+		tf6.setColumns(10);
+		
+		JLabel lblMaths = new JLabel("Maths");
+		lblMaths.setBounds(181, 41, 46, 14);
+		panel.add(lblMaths);
+		
+		JLabel lblEnglish = new JLabel("English");
+		lblEnglish.setBounds(179, 69, 46, 14);
+		panel.add(lblEnglish);
+		
+		JLabel lblBiology = new JLabel("Biology");
+		lblBiology.setBounds(179, 94, 46, 14);
+		panel.add(lblBiology);
+		
+		JLabel lblComputer = new JLabel("Computer");
+		lblComputer.setBounds(179, 116, 59, 14);
+		panel.add(lblComputer);
+		
+		JLabel lblChemistry = new JLabel("Chemistry");
+		lblChemistry.setBounds(181, 139, 59, 18);
+		panel.add(lblChemistry);
+		
+		JLabel lblPhysics = new JLabel("Physics");
+		lblPhysics.setBounds(179, 165, 46, 14);
+		panel.add(lblPhysics);
+		
+		JLabel lblTamil = new JLabel("Tamil");
+		lblTamil.setBounds(179, 190, 46, 14);
+		panel.add(lblTamil);
+		
+		JLabel lblMalayalam = new JLabel("Malayalam");
+		lblMalayalam.setBounds(179, 218, 59, 14);
+		panel.add(lblMalayalam);
+		
+		n1 = new JTextField();
+		n1.setBounds(237, 38, 86, 20);
+		panel.add(n1);
+		n1.setColumns(10);
+		
+		n2 = new JTextField();
+		n2.setBounds(235, 66, 86, 20);
+		panel.add(n2);
+		n2.setColumns(10);
+		
+		n3 = new JTextField();
+		n3.setBounds(237, 91, 86, 20);
+		panel.add(n3);
+		n3.setColumns(10);
+		
+		n4 = new JTextField();
+		n4.setBounds(237, 116, 86, 20);
+		panel.add(n4);
+		n4.setColumns(10);
+		
+		n5 = new JTextField();
+		n5.setBounds(237, 141, 86, 20);
+		panel.add(n5);
+		n5.setColumns(10);
+		
+		n6 = new JTextField();
+		n6.setBounds(237, 165, 86, 20);
+		panel.add(n6);
+		n6.setColumns(10);
+		
+		n7 = new JTextField();
+		n7.setBounds(237, 190, 86, 20);
+		panel.add(n7);
+		n7.setColumns(10);
+		
+		n8 = new JTextField();
+		n8.setBounds(237, 215, 86, 20);
+		panel.add(n8);
+		n8.setColumns(10);
+		
+		JLabel lblStudentDetails = new JLabel("Student Details");
+		lblStudentDetails.setBounds(125, 11, 102, 14);
+		panel.add(lblStudentDetails);
+		
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setBackground(Color.BLACK);
+		separator_3.setBounds(10, 149, 156, 2);
+		panel.add(separator_3);
+		
+		JComboBox tf7 = new JComboBox();
+		tf7.setModel(new DefaultComboBoxModel(new String[] {"<Select course code>", "111032B", "111032A", "111032E"}));
+		tf7.setBounds(83, 116, 84, 20);
+		panel.add(tf7);
+		
+		tb = new JTable();
+		tb.setBackground(Color.PINK);
+		tb.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Student Id", "Course Name", "Math", "English", "Biology", "Computer", "Chemistry", "physics", "Tamil", "Malayalam", "Total Score", "Average", "Ranking"},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		tb.setBounds(20, 378, 759, 64);
+		frame.getContentPane().add(tb);
+		
+		JButton btnAddReport = new JButton("Add Report");
+		btnAddReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String studentid=tf1.getText();
+				String ccode=tf2.getText();
+				float n[]=new float[12];
+				n[1]=Float.parseFloat(n1.getText());
+				n[2]=Float.parseFloat(n2.getText());
+				n[3]=Float.parseFloat(n3.getText());
+				n[4]=Float.parseFloat(n4.getText());
+				n[5]=Float.parseFloat(n5.getText());
+				n[6]=Float.parseFloat(n6.getText());
+				n[7]=Float.parseFloat(n7.getText());
+				n[8]=Float.parseFloat(n8.getText());
+				for(int i=1;i<=8;i++)
+				{
+					n[9]=n[9]+n[i];
+				}
+				n[10]=n[9]/8;
+				//String str[]=new String[14];
+				for(int i=1;i<=10;i++) {
+					str[i]=String.valueOf(n[i]);
+				}
+				if(n[10]>35)
+					g=("Passed");
+					
+				else
+					g="Failed";
+				
+				tf6.setText(g);
+				tf4.setText(str[9]);
+				tf5.setText(str[10]);
+				DefaultTableModel model=(DefaultTableModel) tb.getModel();
+				model.addRow(new String[] {studentid,ccode,str[1],str[2],str[3],str[4],str[5],str[6],str[7],str[8],str[9],str[10],g});
+			
+			}
+			
+			});
+		btnAddReport.setBounds(137, 454, 89, 23);
+		frame.getContentPane().add(btnAddReport);
+		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				DefaultTableModel model=(DefaultTableModel) tb.getModel();
+				if(tb.getSelectedRow()==-1)
+				{
+				if(tb.getRowCount()==0)
+				{
+				JOptionPane.showMessageDialog(null, "NO data to Delete",
+				"Student Result",JOptionPane.OK_OPTION);
+				}
+				else {
+				JOptionPane.showMessageDialog(null, "Select a row to Delete",
+				"Student Result",JOptionPane.OK_OPTION);
+				}
+				}
+				else {
+				model.removeRow(tb.getSelectedRow());
+				}  
+			}
+		});
+		btnDelete.setBounds(254, 454, 89, 23);
+		frame.getContentPane().add(btnDelete);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(353, 11, 426, 346);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		
+		JLabel lblStudentRecord = new JLabel("Student Record");
+		lblStudentRecord.setBounds(167, 11, 100, 14);
+		panel_1.add(lblStudentRecord);
+		
+		JTextArea ta = new JTextArea();
+		ta.setBounds(10, 37, 385, 262);
+		panel_1.add(ta);
+		
+		JButton bt1 = new JButton("clear");
+		bt1.setBounds(20, 312, 89, 23);
+		panel_1.add(bt1);
+		bt1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ta.setText("");
+			}
+		});
+		
+		
+		JButton btnShowReport = new JButton("Show Report");
+		btnShowReport.addActionListener(new ActionListener() {
+			
+
+			public void actionPerformed(ActionEvent e) {
+			//	ta.setText("hello");
+				ta.setText("                 REPORT CARD\n\nStudent Name :   "+ tf2.getText()+" "+ tf3.getText()+"\n\n-------------------------------------------"
+						+"\nMATH    "+str[1]+"\n"
+						+"ENGLISH	"+str[2]+"\n"
+						+"BIOLOGY	"+str[3]+"\n"
+						+"COMPUTER	"+str[4]+"\n"
+						+"CHEMISTRY  "+str[5]+"\n"
+						+"PHYSICS	"+str[6]+"\n"
+						+"TAMIL	    "+str[7]+"\n"
+						+"MALAYALAM	"+str[8]+"\n-------------------------------------------"
+						+"\nTOTAL SCORE"+str[9]+"\n"
+						+"AVERAGE	 "+str[10]+"\n"
+						+"RANKING	 "+g);
+
+			}
+		});
+		btnShowReport.setBounds(368, 454, 100, 23);
+		frame.getContentPane().add(btnShowReport);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		btnExit.setBounds(480, 454, 89, 23);
+		frame.getContentPane().add(btnExit);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				n1.setText("");
+				n2.setText("");
+				n3.setText("");
+				n4.setText("");
+				n5.setText("");
+				n6.setText("");
+				n7.setText("");
+				n8.setText("");
+				tf1.setText("");
+				tf2.setText("");
+				tf3.setText("");
+				tf4.setText("");
+				tf5.setText("");
+				tf6.setText("");
+				
+			}
+		});
+		btnReset.setBounds(595, 453, 89, 23);
+		frame.getContentPane().add(btnReset);
+		
+		
+	}
+}
