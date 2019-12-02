@@ -1,0 +1,89 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Sample {
+
+	private JFrame frame;
+	private JTextField tf1;
+	private JTextField tf2;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Sample window = new Sample();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Sample() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		tf1 = new JTextField();
+		tf1.setBounds(189, 85, 86, 20);
+		frame.getContentPane().add(tf1);
+		tf1.setColumns(10);
+		
+		tf2 = new JTextField();
+		tf2.setBounds(189, 133, 86, 20);
+		frame.getContentPane().add(tf2);
+		tf2.setColumns(10);
+		
+		JLabel LB = new JLabel("New label");
+		LB.setBounds(189, 224, 135, 14);
+		frame.getContentPane().add(LB);
+		
+		
+		JButton b1 = new JButton("New button");
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String username=tf1.getText();
+				String password=tf2.getText();
+				if(username.equals("SALVI")&&password.equals("123"))
+						{
+						LB.setText("Succesfull");
+						}
+				else
+					LB.setText("Unsuccesfull");
+				
+			}
+		});
+		b1.setBounds(189, 181, 89, 23);
+		frame.getContentPane().add(b1);
+		
+		
+		JLabel lblUsername = new JLabel("Username");
+		lblUsername.setBounds(85, 88, 68, 14);
+		frame.getContentPane().add(lblUsername);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setBounds(87, 136, 66, 14);
+		frame.getContentPane().add(lblPassword);
+	}
+}
