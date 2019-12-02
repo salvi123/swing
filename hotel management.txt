@@ -1,0 +1,675 @@
+package rupees;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JSeparator;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+
+public class hotelmanagement {
+
+	private JFrame frame;
+	private JTextField tf1;
+	private JTextField tf2;
+	private JTextField tf3;
+	private JTextField tf4;
+	private JTextField tf8;
+	private JTextField tf5;
+	private JTextField tf6;
+	private JTextField tf7;
+	private JTextField tf9;
+	private JTextField tf10;
+	private JTextField tf11;
+	private JTextField tf12;
+	private JButton b0;
+	public int a=0;
+	public String Str1=null,Str2=null,Str3=null;
+	int df=0;
+	public int cf[]= {0,10,15,20,25,40};
+    public float cu[]= {1.0f,0.014f,0.052f,0.098f};
+    public int f=0;
+    public float cdq,cost,tv=0.0f,hd;
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					hotelmanagement window = new hotelmanagement();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public hotelmanagement() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 857, 619);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblHotelManagementSystem = new JLabel("HOTEL MANAGEMENT SYSTEM");
+		lblHotelManagementSystem.setFont(new Font("Tahoma", Font.PLAIN, 34));
+		lblHotelManagementSystem.setBounds(129, 11, 494, 46);
+		frame.getContentPane().add(lblHotelManagementSystem);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel.setBounds(10, 68, 366, 246);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblChickenBurgr = new JLabel("Chicken burger");
+		lblChickenBurgr.setBounds(10, 38, 84, 14);
+		panel.add(lblChickenBurgr);
+		
+		JLabel lblNewLabel = new JLabel("Chicken Burger Meal");
+		lblNewLabel.setBounds(10, 74, 109, 14);
+		panel.add(lblNewLabel);
+		
+		JLabel lblCheeseBurger = new JLabel("Cheese Burger");
+		lblCheeseBurger.setBounds(10, 109, 95, 14);
+		panel.add(lblCheeseBurger);
+		
+		JLabel lblDrink = new JLabel("Drink");
+		lblDrink.setBounds(10, 166, 46, 14);
+		panel.add(lblDrink);
+		
+		JLabel lblQty = new JLabel("Qty");
+		lblQty.setBounds(192, 166, 31, 14);
+		panel.add(lblQty);
+		
+		tf1 = new JTextField();
+		tf1.setText("0");
+		tf1.setBounds(152, 35, 86, 20);
+		panel.add(tf1);
+		tf1.setColumns(10);
+		
+		tf2 = new JTextField();
+		tf2.setText("0");
+		tf2.setBounds(152, 71, 86, 20);
+		panel.add(tf2);
+		tf2.setColumns(10);
+		
+		tf3 = new JTextField();
+		tf3.setText("0");
+		tf3.setBounds(152, 106, 86, 20);
+		panel.add(tf3);
+		tf3.setColumns(10);
+		
+		tf4 = new JTextField();
+		tf4.setText("0");
+		tf4.setBounds(233, 163, 86, 20);
+		panel.add(tf4);
+		tf4.setColumns(10);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBackground(Color.BLACK);
+		separator.setBounds(10, 142, 315, 2);
+		panel.add(separator);
+		
+		JComboBox cb1 = new JComboBox();
+		cb1.setModel(new DefaultComboBoxModel(new String[] {"select", "tea", "coffee", "lime juice", "grape lime", "pepsi"}));
+		cb1.setSelectedIndex(0);
+		cb1.setBounds(41, 163, 109, 20);
+		panel.add(cb1);
+		
+		JRadioButton rb1 = new JRadioButton("Home Delivery");
+		rb1.setBounds(10, 216, 109, 23);
+		panel.add(rb1);
+		
+		JRadioButton rb2 = new JRadioButton("Tax");
+		rb2.setBounds(192, 216, 109, 23);
+		panel.add(rb2);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_1.setBounds(381, 68, 212, 246);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblCurrencyConverterl = new JLabel("Currency Converter");
+		lblCurrencyConverterl.setBounds(42, 11, 109, 14);
+		panel_1.add(lblCurrencyConverterl);
+		
+		JComboBox cb2 = new JComboBox();
+		cb2.setModel(new DefaultComboBoxModel(new String[] {"select", "Indian rupee", "UAE dirham", "USA dollar", "chinese yuan"}));
+		cb2.setBounds(20, 50, 165, 20);
+		panel_1.add(cb2);
+
+		
+		tf8 = new JTextField();
+		tf8.setEditable(false);
+		tf8.setBounds(20, 111, 165, 20);
+		panel_1.add(tf8);
+		tf8.setColumns(10);
+		
+		JButton bcon = new JButton("Convert");
+		bcon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int num1=cb2.getSelectedIndex();
+				float total=Float.parseFloat(tf11.getText());
+				tf8.setText(String.valueOf((float)total*cu[num1]));	
+
+			}
+		});
+		bcon.setBounds(10, 212, 89, 23);
+		panel_1.add(bcon);
+		
+		JButton bcls = new JButton("Close");
+		bcls.setBounds(121, 212, 89, 23);
+		panel_1.add(bcls);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_3.setBounds(10, 317, 366, 156);
+		frame.getContentPane().add(panel_3);
+		panel_3.setLayout(null);
+		
+		JLabel lblCostOfDrinks = new JLabel("Cost of Drinks");
+		lblCostOfDrinks.setBounds(10, 24, 93, 14);
+		panel_3.add(lblCostOfDrinks);
+		
+		JLabel lblCostOfMeal = new JLabel("Cost of Meal");
+		lblCostOfMeal.setBounds(10, 60, 93, 14);
+		panel_3.add(lblCostOfMeal);
+		
+		JLabel lblCostOfDelivery = new JLabel("Cost of Delivery");
+		lblCostOfDelivery.setBounds(10, 96, 93, 14);
+		panel_3.add(lblCostOfDelivery);
+		
+		tf5 = new JTextField();
+		tf5.setEditable(false);
+		tf5.setBounds(188, 21, 100, 20);
+		panel_3.add(tf5);
+		tf5.setColumns(10);
+		
+		tf6 = new JTextField();
+		tf6.setEditable(false);
+		tf6.setBounds(188, 57, 100, 20);
+		panel_3.add(tf6);
+		tf6.setColumns(10);
+		
+		tf7 = new JTextField();
+		tf7.setEditable(false);
+		tf7.setBounds(188, 93, 104, 20);
+		panel_3.add(tf7);
+		tf7.setColumns(10);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_4.setBounds(381, 317, 212, 157);
+		frame.getContentPane().add(panel_4);
+		panel_4.setLayout(null);
+		
+		JLabel lb1 = new JLabel("Tax");
+		lb1.setEnabled(false);
+		lb1.setBounds(10, 22, 46, 14);
+		panel_4.add(lb1);
+		
+		JLabel lblSubTotal = new JLabel("Sub total");
+		lblSubTotal.setBounds(10, 60, 46, 14);
+		panel_4.add(lblSubTotal);
+		
+		JLabel lblTotal = new JLabel("Total");
+		lblTotal.setBounds(10, 102, 46, 14);
+		panel_4.add(lblTotal);
+		
+		tf9 = new JTextField();
+		tf9.setEnabled(false);
+		tf9.setEditable(false);
+		tf9.setBounds(94, 19, 86, 20);
+		panel_4.add(tf9);
+		tf9.setColumns(10);
+		
+		tf10 = new JTextField();
+		tf10.setEditable(false);
+		tf10.setBounds(94, 57, 86, 20);
+		panel_4.add(tf10);
+		tf10.setColumns(10);
+		
+		tf11 = new JTextField();
+		tf11.setEditable(false);
+		tf11.setBounds(94, 99, 86, 20);
+		panel_4.add(tf11);
+		tf11.setColumns(10);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_5.setBounds(10, 482, 821, 97);
+		frame.getContentPane().add(panel_5);
+		panel_5.setLayout(null);
+		
+		JButton btot = new JButton("Total");
+		btot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int chnb=Integer.parseInt(tf1.getText());
+				int chnbm=Integer.parseInt(tf2.getText());
+				int chsb=Integer.parseInt(tf3.getText());
+				int qnty=Integer.parseInt(tf4.getText());
+				int drnk=cb1.getSelectedIndex();
+				hd=0;
+				int tx=0;
+				float tv=0.0f;
+
+				if(rb1.isSelected())
+				{
+					hd=40;
+				}
+				if(rb2.isSelected())
+				{
+					lb1.setEnabled(true);
+					tf9.setEnabled(true);
+					tv=0.12f;
+					tx=1;
+				}
+				else
+				{
+					lb1.setEnabled(false);
+					tf9.setEnabled(false);
+				}
+				cdq=qnty*cf[drnk];
+				cost=(chnb*48)+(chnbm*80)+(chsb*80);
+				 tf5.setText(String.valueOf(cdq));
+				 tf6.setText(String.valueOf(cost));
+				 tf7.setText(String.valueOf(hd));
+				 float tt=(float)(cost+cdq);
+				 tf10.setText(String.valueOf(tt));
+				 tf11.setText(String.valueOf((float)(tt+(float)(tt*tv))+hd));
+				 
+				 if(tx==1)
+				 {
+					 tf9.setText(String.valueOf(tt*.12));
+				 }
+				 else
+				 {
+					 tf9.setText("0");
+				 }
+
+				
+				
+			}
+		});
+		btot.setBounds(45, 34, 131, 37);
+		panel_5.add(btot);
+		
+		JButton brcpt = new JButton("Receipt");
+		
+		brcpt.setBounds(230, 34, 137, 37);
+		panel_5.add(brcpt);
+		
+		JButton bre = new JButton("Reset");
+		bre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tf1.setText("0");
+				tf2.setText("0");
+				tf3.setText("0");
+				tf4.setText("0");
+				tf5.setText("0");
+				tf6.setText("0");
+				tf7.setText("0");
+				tf8.setText("0");
+				tf9.setText("0");
+				tf10.setText("0");
+				tf11.setText("0");
+
+				
+				
+			}
+		});
+		bre.setBounds(415, 34, 123, 37);
+		panel_5.add(bre);
+		
+		JButton bex = new JButton("Exit");
+		bex.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		bex.setBounds(598, 34, 116, 37);
+		panel_5.add(bex);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(815, 464, -207, -382);
+		frame.getContentPane().add(tabbedPane);
+		
+		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane_1.setBounds(603, 68, 228, 405);
+		frame.getContentPane().add(tabbedPane_1);
+		JPanel panel_7 = new JPanel();
+		tabbedPane_1.addTab("Receipt", null, panel_7, null);
+		panel_7.setLayout(null);
+		
+		JTextArea Ta = new JTextArea();
+		Ta.setEditable(false);
+		Ta.setBounds(10, 11, 203, 355);
+		panel_7.add(Ta);
+		
+		brcpt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+		     	float total=cdq+cost;
+
+					total=total+(total*tv)+hd;
+					Ta.setText("       HOTEL \n"
+					+ "--------------------------\n"
+					+ "Cost of Drinks         "+cdq+"  \n"
+					+ "Cost of Meals          "+cost+"  \n"
+					+ "Delivery Charge        "+hd+"  \n"
+					+ "Tax                    "+tf9.getText()+"  \n"
+					+ "Grand Total            "+tf11.getText());
+
+			}
+		});
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane_1.addTab("Calculator", null, panel_2, null);
+		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_2.setLayout(null);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setBorder(new LineBorder(new Color(51, 0, 204)));
+		panel_6.setBounds(10, 11, 203, 341);
+		panel_2.add(panel_6);
+		panel_6.setLayout(null);
+		
+		JButton btnB = new JButton("B");
+		btnB.setBounds(10, 94, 45, 32);
+		panel_6.add(btnB);
+		
+		JButton btnC = new JButton("C");
+		btnC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tf12.setText("");
+				f=0;
+			}
+		});
+		btnC.setBounds(54, 94, 55, 32);
+		panel_6.add(btnC);
+		
+		JButton button = new JButton("");
+		button.setBounds(108, 94, 55, 32);
+		panel_6.add(button);
+		
+		JButton badd = new JButton("+");
+		badd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Str1=tf12.getText();
+				tf12.setText("");
+				Str2=badd.getText();
+				df=0;
+			}
+		});
+		badd.setBounds(163, 94, 45, 32);
+		panel_6.add(badd);
+		
+		JButton b7 = new JButton("7");
+		b7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(a==1)
+				{
+					tf12.setText("");
+					a=0;
+				}
+				
+				tf12.setText(tf12.getText().concat(b7.getText()));
+			}
+		});
+		b7.setBounds(10, 137, 45, 32);
+		panel_6.add(b7);
+		
+		JButton b8 = new JButton("8");
+		b8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(a==1)
+				{
+					tf12.setText("");
+					a=0;
+				}
+				
+				tf12.setText(tf12.getText().concat(b8.getText()));
+			}
+		});
+		b8.setBounds(54, 137, 55, 32);
+		panel_6.add(b8);
+		
+		JButton b9 = new JButton("9");
+		b9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(a==1)
+				{
+					tf12.setText("");
+					a=0;
+				}
+				
+				tf12.setText(tf12.getText().concat(b9.getText()));
+			}
+		});
+		b9.setBounds(109, 137, 54, 32);
+		panel_6.add(b9);
+		
+		JButton bsub = new JButton("-");
+		bsub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Str1=tf12.getText();
+				tf12.setText("");
+				Str2=bsub.getText();
+				df=0;
+			}
+		});
+		bsub.setBounds(163, 137, 45, 32);
+		panel_6.add(bsub);
+		
+		JButton b4 = new JButton("4");
+		b4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(a==1)
+				{
+					tf12.setText("");
+					a=0;
+				}
+				
+				tf12.setText(tf12.getText().concat(b4.getText()));
+			}
+		});
+		b4.setBounds(10, 180, 45, 31);
+		panel_6.add(b4);
+		
+		JButton b5 = new JButton("5");
+		b5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(a==1)
+				{
+					tf12.setText("");
+					a=0;
+				}
+				
+				tf12.setText(tf12.getText().concat(b5.getText()));
+			}
+		});
+		b5.setBounds(54, 180, 55, 31);
+		panel_6.add(b5);
+		
+		JButton b6 = new JButton("6");
+		b6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(a==1)
+				{
+					tf12.setText("");
+					a=0;
+				}
+				
+				tf12.setText(tf12.getText().concat(b6.getText()));
+			}
+		});
+		b6.setBounds(108, 180, 55, 31);
+		panel_6.add(b6);
+		
+		JButton bmul = new JButton("*");
+		bmul.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Str1=tf12.getText();
+				tf12.setText("");
+				Str2=bmul.getText();
+				df=0;
+			}
+		});
+		bmul.setBounds(163, 180, 45, 31);
+		panel_6.add(bmul);
+		
+		JButton b1 = new JButton("1");
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(a==1)
+				{
+					tf12.setText("");
+					a=0;
+				}
+				
+				tf12.setText(tf12.getText().concat(b1.getText()));
+			
+			}
+		});
+		b1.setBounds(10, 222, 45, 37);
+		panel_6.add(b1);
+		
+		JButton b2 = new JButton("2");
+		b2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(a==1)
+				{
+					tf12.setText("");
+					a=0;
+				}
+				
+				tf12.setText(tf12.getText().concat(b2.getText()));
+			
+			}
+		});
+		b2.setBounds(54, 222, 55, 37);
+		panel_6.add(b2);
+		
+		JButton b3 = new JButton("3");
+		b3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(a==1)
+				{
+					tf12.setText("");
+					a=0;
+				}
+				
+				tf12.setText(tf12.getText().concat(b3.getText()));
+			
+			}
+		});
+		b3.setBounds(109, 222, 55, 37);
+		panel_6.add(b3);
+		
+		JButton bdiv = new JButton("/");
+		bdiv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Str1=tf12.getText();
+				tf12.setText("");
+				Str2=bdiv.getText();
+				df=0;
+			}
+		});
+		bdiv.setBounds(163, 222, 45, 37);
+		panel_6.add(bdiv);
+		
+		b0 = new JButton("0");
+		b0.setBounds(10, 270, 45, 37);
+		panel_6.add(b0);
+		
+		JButton bdot = new JButton(".");
+		bdot.setBounds(54, 270, 55, 37);
+		panel_6.add(bdot);
+		
+		JButton button_15 = new JButton("");
+		button_15.setBounds(108, 270, 55, 37);
+		panel_6.add(button_15);
+		
+		JButton beq = new JButton("=");
+		beq.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Str1.equals(null))
+				{
+					tf12.setText("");
+				}
+				else
+				{
+				float res1,res;
+				float res2=Float.parseFloat(tf12.getText());
+				f=1;
+				if(Str2.equals("+"))
+				{
+					res1=Float.parseFloat(Str1);
+					res=res1+res2;
+					String str=String.valueOf(res);
+					tf12.setText(str);
+					
+				}
+				else if(Str2.equals("-"))
+				{
+					res1=Float.parseFloat(Str1);
+					res=res1-res2;
+					String str=String.valueOf(res);
+					tf12.setText(str);
+				}
+				else if(Str2.equals("*"))
+				{
+					res1=Float.parseFloat(Str1);
+					res=res1*res2;
+					String str=String.valueOf(res);
+					tf12.setText(str);
+						
+				}
+				else if(Str2.equals("/"))
+				{
+					res1=Float.parseFloat(Str1);
+					res=res1/res2;
+					String str=String.valueOf(res);
+					tf12.setText(str);
+				}
+				}
+			}
+				});
+		beq.setBounds(163, 270, 45, 37);
+		panel_6.add(beq);
+		
+		tf12 = new JTextField();
+		tf12.setEditable(false);
+		tf12.setBounds(25, 27, 167, 46);
+		panel_6.add(tf12);
+		tf12.setColumns(10);
+		
+		
+	}
+}
